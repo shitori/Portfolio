@@ -24,7 +24,7 @@
             <form action="/" method="post">
               <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
               <input type="hidden" name="directory" value="<%= directory %>">
-              <button type="submit"> <%= directory %> </button>
+                <button type="submit"><img src="/images/icon-folder.png"> <%= directory %> </button>
             </form>
           </li>
         <% }) %>
@@ -35,7 +35,7 @@
             <form action="/view" method="post">
               <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
               <input type="hidden" name="directory" value="<%= file %>">
-              <button type="submit"> <%= file %> </button>
+                <button type="submit"><img src="/images/icon-file.png"> <%= file %> </button>
             </form>
           </li>
         <% }) %>

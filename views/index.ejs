@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Mon portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Vous êtes dans : <%= directoryPath %></p>
+
+    <% if (files || directories) { %>
+      <ul>
+        <li>
+          <form action="/" method="post">
+            <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+            <input type="hidden" name="directory" value="..">
+            <button type="submit"> retour</button>
+          </form>
+        </li>
+        <% directories.forEach(function (directory) { %>
+          <li>
+            <form action="/" method="post">
+              <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+              <input type="hidden" name="directory" value="<%= directory %>">
+              <button type="submit"> <%= directory %> </button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+      <ul>
+        <% files.forEach(function (file) { %>
+          <li>
+            <form action="/view" method="post">
+              <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+              <input type="hidden" name="directory" value="<%= file %>">
+              <button type="submit"> <%= file %> </button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>Répertoire vide ou inaccessible en lecture.<br><%= error %></p>
+
+    <% } %>
+
+
   </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
+  <script src="javascripts/main.js"></script>
 </html>

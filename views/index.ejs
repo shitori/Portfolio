@@ -1,45 +1,68 @@
 <% include header %>
-
-  <body>
-    <h1><%= title %></h1>
-    <p>Vous êtes dans : <%= directoryPath %></p>
-
+<div class="container">
+    <body>
+    <h1>Mon ordinateur</h1>
+    <h3>Vous êtes dans : <%= directoryPath %></h3>
+    <form class="form-inline">
+        <div class="form-group mb-2">
+            <label for="search" class="sr-only">Recherche manuel:</label>
+            <input type="text" readonly class="form-control-plaintext" id="search" value="Recherche manuel:">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="searchValue" class="sr-only">Nom du répertoire</label>
+            <input type="password" class="form-control" id="searchValue" placeholder="C:\">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Lancer la recherche</button>
+    </form>
     <% if (files || directories) { %>
-      <ul>
-        <li>
-          <form action="/" method="post">
-            <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
-            <input type="hidden" name="directory" value="..">
-            <button type="submit"> retour</button>
-          </form>
-        </li>
-        <% directories.forEach(function (directory) { %>
-          <li>
-            <form action="/" method="post">
-              <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
-              <input type="hidden" name="directory" value="<%= directory %>">
-                <button type="submit"><img src="/images/icon-folder.png"> <%= directory %> </button>
+        <div class="row">
+            <form action="/" method="post" class="col mb-1">
+                <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+                <input type="hidden" name="directory" value="..">
+                <button type="submit" class="btn">
+                    <div class="card" style="width: 8rem;">
+                        <img src="/images/icon-folder.png" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-title">Retour</p>
+                        </div>
+                    </div>
+                </button>
             </form>
-          </li>
-        <% }) %>
-      </ul>
-      <ul>
-        <% files.forEach(function (file) { %>
-          <li>
-            <form action="/view" method="post">
-              <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
-              <input type="hidden" name="directory" value="<%= file %>">
-                <button type="submit"><img src="/images/icon-file.png"> <%= file %> </button>
-            </form>
-          </li>
-        <% }) %>
-      </ul>
+            <% directories.forEach(function (directory) { %>
+                <form action="/" method="post" class="col mb-1">
+                    <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+                    <input type="hidden" name="directory" value="<%= directory %>">
+                    <button type="submit" class="btn">
+                        <div class="card" style="width: 8rem;">
+                            <img src="/images/icon-folder.png" class="card-img-top">
+                            <div class="card-body">
+                                <p class="card-title"><%= directory %></p>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            <% }) %>
+        </div>
+        <div class="row">
+            <% files.forEach(function (file) { %>
+                <form action="/view" method="post" class="col mb-1">
+                    <input type="hidden" name="directoryPath" value="<%= directoryPath %>">
+                    <input type="hidden" name="directory" value="<%= file %>">
+                    <button type="submit" class="btn">
+                        <div class="card" style="width: 8rem;">
+                            <img src="/images/icon-file.png" class="card-img-top">
+                            <div class="card-body">
+                                <p class="card-title"><%= file %></p>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            <% }) %>
+        </div>
     <% } else { %>
-      <p>Répertoire vide ou inaccessible en lecture.<br><%= error %></p>
-
+        <p>Répertoire vide ou inaccessible en lecture.<br><%= error %></p>
     <% } %>
-
-
-  </body>
+    </body>
+</div>
 <% include footer %>
 

@@ -23,7 +23,6 @@ function forIndex(req, res, next, directoryPath) {
             });
         }
         res.render('index', {
-            title: 'Express',
             files: files,
             directories: directories,
             directoryPath: directoryPath,
@@ -32,7 +31,7 @@ function forIndex(req, res, next, directoryPath) {
     });
 }
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     const directoryPath = path.resolve(__dirname);
     forIndex(req, res, next, directoryPath);
 });

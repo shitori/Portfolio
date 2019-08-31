@@ -1,6 +1,25 @@
 <% include header %>
+<div class="container-fluid">
+</div>
 <div class="container">
-    <body>
+    <div class="row rounded p-3 mb-2 bg-info text-white" style="margin-top: 70px">
+        <div class="col-11">
+            <h3 class="">Bienvenue sur mon portfolio, vous pouvez accèder aux rubriques que vous
+                souhaités ici ou sur la barre de navigation, bonne visite.</h3>
+        </div>
+        <div class="col-1">
+            <button type="button" class="btn btn-outline-danger bg-light removed">X</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+
     <h1>Mon ordinateur</h1>
     <h3>Vous êtes dans : <%= directoryPath %></h3>
     <form class="form-inline">
@@ -62,7 +81,6 @@
     <% } else { %>
         <p>Répertoire vide ou inaccessible en lecture.<br><%= error %></p>
     <% } %>
-    </body>
 </div>
 <% include footer %>
 

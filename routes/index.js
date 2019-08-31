@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
-var open = require("open")
+const open = require("open");
 
-/* GET home page. */
 function forIndex(req, res, next, directoryPath) {
     var files = [];
     var directories = [];
@@ -55,6 +54,16 @@ router.post('/view', function (req, res, next) {
     open(filePath, {app: 'chrome'});
     res.render('view', {filePath: filePath, directoryPath: req.body.directoryPath});
 
+});
+
+function fulltree(directoryPath) {
+    //arbre des fichiers
+}
+
+router.get('/tree', function (req, res, next) {
+    //const directoryPath = path.resolve(path.join(__dirname, "../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../"));
+    const directoryPath = path.resolve(path.join(__dirname, ""));
+    res.render('tree');
 });
 
 

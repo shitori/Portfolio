@@ -9,45 +9,56 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand" href="/"><img src="/images/aflogo.png" style="width: 70px;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-                <a class="nav-link" href="/">Accueil </a>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="/"><img src="/images/svg/home.svg" style="width: 35px;"><br>Accueil</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Projets / Expériences Informatiques</a>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="/"><img src="/images/svg/terminal.svg" style="width: 30px;"><br>Projets /
+                    Expériences Informatiques</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown text-center">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
+                    <img src="/images/svg/person.svg" style="width: 25px;"><br>
                     Curriculum Vitae
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Formations</a>
-                    <a class="dropdown-item" href="#">Compétences</a>
-                    <a class="dropdown-item" href="#">Projets Informatiques</a>
-                    <a class="dropdown-item" href="#">Expériences professionnels</a>
-                    <a class="dropdown-item" href="#">Langues</a>
+                    <a class="dropdown-item" href="#"><img src="/images/svg/mortar-board.svg" style="width: 15px;">
+                        Formations</a>
+                    <a class="dropdown-item" href="#"><img src="/images/svg/note.svg" style="width: 15px;"> Compétences</a>
+                    <a class="dropdown-item" href="#"><img src="/images/svg/circuit-board.svg" style="width: 15px;">
+                        Projets Informatiques</a>
+                    <a class="dropdown-item" href="#"><img src="/images/svg/briefcase.svg" style="width: 15px;">
+                        Expériences professionnels</a>
+                    <a class="dropdown-item" href="#"><img src="/images/svg/globe.svg" style="width: 15px;"> Langues</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="documents/cv.pdf">CV au format PDF</a>
-                    <a class="dropdown-item" href="https://ceev.io/dashboard">Modifier mon CV</a>
+                    <a class="dropdown-item" href="documents/cv.pdf"><img src="/images/svg/desktop-download.svg"
+                                                                          style="width: 15px;"> CV au format PDF</a>
+                    <a class="dropdown-item" href="https://ceev.io/dashboard"><img src="/images/svg/pencil.svg"
+                                                                                   style="width: 15px;"> Modifier mon CV</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Passions</a>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="/"><img src="/images/svg/device-camera.svg" style="width: 35px;"><br>Passions</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">État du site / serveur / raspberry</a>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="/"><img src="/images/svg/dashboard.svg" style="width: 35px;"><br>État du site
+                    / serveur / raspberry</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link" href="/contact"><img src="/images/svg/mail.svg" style="width: 30px;"><br>Contact</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une catégorie (à implémenter)"
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une rubrique (à implémenter)"
                    aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Recherche</button>
         </form>

@@ -31,6 +31,13 @@ function forIndex(req, res, next, directoryPath) {
 }
 
 router.get('/', function (req, res, next) {
+    fs.readFile('package.json', (err, data) => {
+        if (err) throw err;
+        let l = JSON.parse(data);
+        console.log(l);
+        let data_bis = JSON.stringify(l);
+        fs.writeFileSync('test.json', data_bis);
+    });
     const directoryPath = path.resolve(__dirname);
     forIndex(req, res, next, directoryPath);
 });
@@ -61,9 +68,18 @@ function fulltree(directoryPath) {
 }
 
 router.get('/tree', function (req, res, next) {
-    //const directoryPath = path.resolve(path.join(__dirname, "../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../"));
-    const directoryPath = path.resolve(path.join(__dirname, ""));
-    res.render('tree');
+    const directoryPath = path.resolve(path.join(__dirname, "../public/images/svg"));
+    fulltree(directoryPath);
+    fs.readdir(directoryPath, function (err, imgs) {
+        res.render('tree', {
+            imgs: imgs,
+            error: err
+        });
+    });
+});
+
+router.get('/contact', function (req, res, next) {
+    res.render('contact');
 });
 
 

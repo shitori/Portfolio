@@ -1,5 +1,17 @@
 <% include header %>
-<h1>Archivage de l'ordinateur</h1>
+<div class="container-fluid">
+    <h1 style="margin-top: 100px"> Visionneuse svg (future)Archivage de l'ordinateur)</h1>
+    <div class="row">
+        <% imgs.forEach(function (img) { %>
+            <div class="col">
+                <img src="/images/svg/<%= img %>" class="col" alt="img"><br>
+                <p><%= img %></p>
+            </div>
+        <% }) %>
+    </div>
+
+</div>
+
 
 <% include footer %>
 
